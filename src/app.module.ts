@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
+import { CredencialCei } from './modules/credencial_cei/credencialCei.model';
+import { CredencialCeiModule } from './modules/credencial_cei/credencialCei.module';
 import { Usuario } from './modules/usuario/usuario.model';
 import { UsuarioModule } from './modules/usuario/usuario.module';
 
@@ -12,11 +14,12 @@ import { UsuarioModule } from './modules/usuario/usuario.module';
       username: 'root',
       password: 'q1w2e3r4t5y6',
       database: 'smart_wallet',
-      models: [Usuario],
+      models: [Usuario, CredencialCei],
       autoLoadModels: false,
       synchronize: true,
     }),
-    UsuarioModule
+    UsuarioModule,
+    CredencialCeiModule
   ],
 })
 export class AppModule {}

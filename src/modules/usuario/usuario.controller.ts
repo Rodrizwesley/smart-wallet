@@ -12,7 +12,7 @@ export class UsuarioController{
         return this.usuarioService.create(createUsuarioDto);
     }
 
-    @Get('get/:idUsuario')
+    @Get('find/:idUsuario')
     findOne(@Param('idUsuario') idUsuario: number): Promise<Usuario> {
         return this.usuarioService.findOne(idUsuario);
     }
