@@ -1,19 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Sequelize } from 'sequelize-typescript';
 import { CredencialCei } from './credencialCei.model';
 import { CreateCredenciaCeiDto } from './dto/create-credenciaCei.dto';
-
 import CeiCrawler from 'cei-crawler';
 
 @Injectable()
 export class CredencialCeiService {
+    /** @type {CeiCrawler} */
+    _ceiCrawler = null;
+
     constructor(
         @InjectModel(CredencialCei)
         private readonly credencialModel: typeof CredencialCei,
-        private readonly sequelize: Sequelize
-        
-    ) { }
+    ) { 
+        this._ceiCrawler = new CeiCrawler('47845745812', 'D86884697Bf3@1');
+    }
 
     async create(credencialCeiDto: CreateCredenciaCeiDto): Promise<CredencialCei> {
         const credenciaCei = new CredencialCei();
@@ -35,8 +36,7 @@ export class CredencialCeiService {
     }
 
     async getWallet(): Promise<any> {
-        const cei = new CeiCrawler('47845745812', 'D86884697Bf3@1');
-        let wallets = await cei.getWallet();
+        let wallets = await this._ceiCrawler.getStockHistory();
         return wallets
     }
 }

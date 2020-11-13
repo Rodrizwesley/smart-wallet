@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/sequelize";
-import { Sequelize } from "sequelize/types";
+import { Sequelize } from "sequelize-typescript";
 import { TipoMovimentacao } from "./tipo_movimentacao.model";
 
 @Injectable()

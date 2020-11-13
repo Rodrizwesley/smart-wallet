@@ -1,7 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/sequelize";
-import { Sequelize } from "sequelize/types";
-import { CreateCarteiraCorrenteDto } from "../carteira_corrente/dto/create-carteira_corrente.dto";
+import { Sequelize } from "sequelize-typescript";
 import { CreateMovimentacaoCarteiraCorrenteDto } from "./dto/create-movimentacao_carteira_corrente.dto";
 import { MovimentacaoCarteiraCorrente } from "./movimentacao_carteira_corrente.model";
 
