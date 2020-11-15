@@ -14,6 +14,8 @@ export class UsuarioService {
     ) {}
 
     async create(createUsuarioDto: CreateUsuarioDto): Promise<Usuario> {
+        console.log(createUsuarioDto)
+
         const usuario = new Usuario();
 
         usuario.cpfUsuario = createUsuarioDto.cpfUsuario;
@@ -36,9 +38,7 @@ export class UsuarioService {
         usuario.telefoneUsuario = createUsuarioDto.telefoneUsuario;
         usuario.emailUsuario = createUsuarioDto.emailUsuario;
 
-        await usuario.save();
-
-        return await this.findOne(createUsuarioDto.idUsuario);
+        return await usuario.save();
     }
 
     async delete(idUsuario: number): Promise<void> {
@@ -70,6 +70,31 @@ export class UsuarioService {
         }
 
         return retorno
+    }
+
+    async findByCPFAndEmail(cpfUsuario: string, emailUsuario: string): Promise<Usuario> {
+        let usuario: Usuario;
+
+        await this.sequelize.query('SELECT * FROM usuario WHERE email_usuario = :email AND cpf_usuario = :cpfUsuario' , {
+            replacements: {
+                email: emailUsuario, 
+                cpfUsuario: cpfUsuario
+            }
+        }).then(res => {
+            let _res = JSON.stringify(res[0], null, 2)
+
+            usuario = JSON.parse(_res)[0]
+        });
+
+        return usuario;
+    }
+
+    async trocarSenha(idUsuario: number, novaSenha: string): Promise<Usuario> {
+        const usuario = await this.findOne(idUsuario);
+
+        usuario.senhaUsuario = sha256(novaSenha);
+
+        return await usuario.save();
     }
 
 

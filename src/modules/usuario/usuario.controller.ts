@@ -27,9 +27,19 @@ export class UsuarioController{
         return this.usuarioService.delete(idUsuario);
     }
 
-    @Get('login')
+    @Post('login')
     login(@Body() credentidals: any): Promise<Object> {
         return this.usuarioService.login(credentidals.email, credentidals.senha);
+    }
+
+    @Post('findCpfEmail')
+    findByCPFAndEmail(@Body() obj: any): Promise<Object> {
+        return this.usuarioService.findByCPFAndEmail(obj.cpf, obj.email);
+    }
+
+    @Put('trocarSenha')
+    trocarSenha(@Body() obj: any): Promise<Usuario> {
+        return this.usuarioService.trocarSenha(obj.idUsuario, obj.novaSenha);
     }
     
 }
