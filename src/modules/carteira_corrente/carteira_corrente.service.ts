@@ -18,9 +18,12 @@ export class CarteiraCorrenteService {
 
         carteiraCorrente.idInstituicaoFinanceira = createCarteiraCorrente.idInstituicaoFinanceira;
         carteiraCorrente.idUsuario = createCarteiraCorrente.idUsuario;
-        carteiraCorrente.saldo = 0.00;
+        carteiraCorrente.saldo = createCarteiraCorrente.saldo;
         carteiraCorrente.agencia = createCarteiraCorrente.agencia;
         carteiraCorrente.conta = createCarteiraCorrente.conta;
+        carteiraCorrente.cartao = createCarteiraCorrente.cartao;
+        carteiraCorrente.nmCarteiraCorrente = createCarteiraCorrente.nmCarteiraCorrente;
+        carteiraCorrente.finalCartao = createCarteiraCorrente.finalCartao;
 
         return await carteiraCorrente.save();
     }

@@ -1,6 +1,7 @@
 import { AutoIncrement, Column, ForeignKey, Model, PrimaryKey, Table } from "sequelize-typescript";
 import { CarteiraCorrente } from "../carteira_corrente/carteira_corrente.model";
 import { TipoMovimentacao } from "../tipo_movimentacao/tipo_movimentacao.model";
+import { Usuario } from "../usuario/usuario.model";
 
 @Table({tableName: 'movimentcao_carteira_corrente', createdAt: false, updatedAt: false})
 export class MovimentacaoCarteiraCorrente extends Model<MovimentacaoCarteiraCorrente> {
@@ -26,5 +27,9 @@ export class MovimentacaoCarteiraCorrente extends Model<MovimentacaoCarteiraCorr
 
     @Column({field: 'descricao_movimentacao', type: 'varchar'})
     descricaoMovimentacao: string
+
+    @ForeignKey(() => Usuario)
+    @Column({field: 'id_usuario'})
+    idUsuario: number;
 
 }

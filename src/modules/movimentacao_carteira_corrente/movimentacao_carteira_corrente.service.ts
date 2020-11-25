@@ -21,6 +21,7 @@ export class MovimentacaoCarteiraCorrenteService {
         movimentacaoCarteiraCorrente.valor = createMovimentacaoCarteiraDto.valor;
         movimentacaoCarteiraCorrente.dataMovimentacao = createMovimentacaoCarteiraDto.dataMovimentacao;
         movimentacaoCarteiraCorrente.descricaoMovimentacao = createMovimentacaoCarteiraDto.descricaoMovimentacao;
+        movimentacaoCarteiraCorrente.idUsuario = createMovimentacaoCarteiraDto.idUsuario;
 
         return await movimentacaoCarteiraCorrente.save();
     }

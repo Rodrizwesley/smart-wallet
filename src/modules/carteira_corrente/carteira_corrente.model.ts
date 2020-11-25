@@ -18,6 +18,9 @@ export class CarteiraCorrente extends Model<CarteiraCorrente>{
     @Column({field: 'id_usuario'})
     idUsuario: number;
 
+    @Column({field: 'nm_carteira_corrente'})
+    nmCarteiraCorrente: string;
+
     @Column({field: 'saldo'})
     saldo: number;
 
@@ -26,4 +29,10 @@ export class CarteiraCorrente extends Model<CarteiraCorrente>{
 
     @Column({field: 'conta'})
     conta: string;
+
+    @Column({field: 'final_cartao'})
+    finalCartao: string;
+
+    @Column({field: 'cartao', type: 'tinyint'})
+    cartao: number;
 }

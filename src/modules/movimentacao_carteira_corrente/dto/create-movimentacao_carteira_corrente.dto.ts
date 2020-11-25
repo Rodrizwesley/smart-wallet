@@ -4,5 +4,6 @@ export class CreateMovimentacaoCarteiraCorrenteDto {
     idCarteiraCorrente: number;
     dataMovimentacao: Date;
     valor: number;
-    descricaoMovimentacao: string
+    descricaoMovimentacao: string;
+    idUsuario: number;
 }
