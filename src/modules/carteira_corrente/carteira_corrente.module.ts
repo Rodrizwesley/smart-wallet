@@ -7,6 +7,7 @@ import { CarteiraCorrenteService } from "./carteira_corrente.service";
 @Module({
     imports: [SequelizeModule.forFeature([CarteiraCorrente])],
     providers: [CarteiraCorrenteService],
-    controllers: [CarteiraCorrenteController]
+    controllers: [CarteiraCorrenteController], 
+    exports: [CarteiraCorrenteService]
 })
 export class CarteiraCorrenteModule {   }

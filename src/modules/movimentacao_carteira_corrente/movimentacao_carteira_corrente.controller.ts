@@ -13,9 +13,9 @@ export class MovimentacaoCarteiraCorrenteController {
         return this.movimentacaoCarteiraCorrente.create(createMovimentacaoCarteiraCorrenteDto);
     }
 
-    @Get('findIdCarteira/:idCarteira')
-    findByIdCarteira(@Param('idCarteira') idCarteira: number): Promise<MovimentacaoCarteiraCorrente[]> {
-        return this.movimentacaoCarteiraCorrente.findAllByIdCarteiraCorrente(idCarteira);
+    @Get('findIdUsuario/:idUsuario')
+    findByIdUsuario(@Param('idUsuario') idCarteira: number): Promise<MovimentacaoCarteiraCorrente[]> {
+        return this.movimentacaoCarteiraCorrente.findAllByIdUsuario(idCarteira);
     }
 
     @Get('findIdMovimentacao/:idMovimetacao')
