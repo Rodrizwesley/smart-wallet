@@ -3,7 +3,7 @@ import { CarteiraCorrente } from "../carteira_corrente/carteira_corrente.model";
 import { TipoMovimentacao } from "../tipo_movimentacao/tipo_movimentacao.model";
 import { Usuario } from "../usuario/usuario.model";
 
-@Table({tableName: 'movimentcao_carteira_corrente', createdAt: false, updatedAt: false})
+@Table({tableName: 'movimentacao_carteira_corrente', createdAt: false, updatedAt: false})
 export class MovimentacaoCarteiraCorrente extends Model<MovimentacaoCarteiraCorrente> {
 
     @PrimaryKey
@@ -20,9 +20,9 @@ export class MovimentacaoCarteiraCorrente extends Model<MovimentacaoCarteiraCorr
     idCarteiraCorrente: number;
     
     @Column({field: 'data_movimentacao', type: 'timestamp'})
-    dataMovimentacao: Date;
+    dataMovimentacao: string;
 
-    @Column({field: 'valor', type: 'double'})
+    @Column({field: 'valor'})
     valor: number;
 
     @Column({field: 'descricao_movimentacao', type: 'varchar'})

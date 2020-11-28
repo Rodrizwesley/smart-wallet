@@ -44,6 +44,7 @@ export class MovimentacaoCarteiraCorrenteService {
     async update(createMovimentacaoCarteiraDto: CreateMovimentacaoCarteiraCorrenteDto): Promise<MovimentacaoCarteiraCorrente> {
         const movimentacaoCarteiraCorrente = await this.findOne(createMovimentacaoCarteiraDto.idMovimentacaoCarteiraCorrente);
         
+        movimentacaoCarteiraCorrente.idCarteiraCorrente = createMovimentacaoCarteiraDto.idCarteiraCorrente;
         movimentacaoCarteiraCorrente.idTipoMovimentacao = createMovimentacaoCarteiraDto.idTipoMovimentacao;
         movimentacaoCarteiraCorrente.valor = createMovimentacaoCarteiraDto.valor;
         movimentacaoCarteiraCorrente.dataMovimentacao = createMovimentacaoCarteiraDto.dataMovimentacao;
